@@ -428,7 +428,7 @@ class MiniExiftool
 
   def respond_to_missing? symbol, *args
     tag_name = MiniExiftool.unify(symbol.id2name)
-    !!(tag_name =~ /=$/) || @values.key?(tag_name) || super
+    !!(tag_name =~ /=$/) || @values&.key?(tag_name) || super
   end
 
   def parse_output
